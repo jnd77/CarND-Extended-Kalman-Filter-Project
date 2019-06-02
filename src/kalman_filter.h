@@ -1,6 +1,7 @@
 #ifndef KALMAN_FILTER_H_
 #define KALMAN_FILTER_H_
 
+#include <cmath>
 #include "Eigen/Dense"
 
 class KalmanFilter {
@@ -63,6 +64,10 @@ class KalmanFilter {
 
   // measurement covariance matrix
   Eigen::MatrixXd R_;
+
+ private:
+  // Common method for both vanilla KF and EKF Update
+  void CommonUpdate(const Eigen::VectorXd &y);
 };
 
 #endif // KALMAN_FILTER_H_
